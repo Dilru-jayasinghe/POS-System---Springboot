@@ -29,6 +29,16 @@ public class CustomerController {
                         message),
                 HttpStatus.CREATED);
     }
+    @PostMapping("/save2")
+    public ResponseEntity<StandardResponse> saveCustomer(@RequestBody CustomerDTO customerDTO) {
+        String message = customerService.saveCustomer(customerDTO);
+        return new ResponseEntity<StandardResponse>(
+                new StandardResponse(
+                        201,
+                        "success",
+                        message),
+                HttpStatus.CREATED);
+    }
     @PutMapping("/update")
     public ResponseEntity<StandardResponse>updateCustomer(@RequestBody CustomerUpdateDTO customerUpdateDTO){
         String message = customerService.updateCustomer(customerUpdateDTO);
